@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/build.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Random color picker</title>
+  </head>
+  <body class="overflow-y-hidden">
+    <nav
+      class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md"
+    >
+      <div
+        class="container flex flex-wrap items-center justify-between mx-auto"
+      >
+        <a href="#" class="flex">
+          <span
+            class="justify-center text-xl text-gray-800 font-semibold whitespace-nowrap dark:text-white"
+          >
+            Random Color Picker</span
+          >
+        </a>
+      </div>
+    </nav>
+
+    <div class="alert bg-greenAlert py-5 px-10 max-w-lg absolute right-0 top-16 rounded-md border-l-8 border-greenAlertBorder">
+      <span class="fas fa-exclamation-circle absolute left-5 top-1/2"></span>
+      <span class="msg">Copiado com sucesso para área de transferência</span>
+      
+      <span class="close-btn">
+        <span class="fas fa-times"></span>
+      </span>
+    </div>
+
+    <section class="min-h-screen grid place-items-center">
+
+      <div class="text-center">
+
+        <h2 class="capitalize block text-white bg-blackMain p-4 mb-10 text-4xl font-semibold rounded-lg tracking-wideButton font-Roboto">background color : 
+          <span class="text-blueMain" id="color">#FFFFFF</span>
+         </h2>
+      <button class="button-main bg-transparent border-black border-2 py-3 px-8 tracking-wideButton uppercase font-Roboto text-base rounded-lg font-bold hover:bg-black hover:text-white" id="btn">generate color</button>
+      <reset class="ml-10 button-main bg-transparent border-black border-2 py-3 px-8 tracking-wideButton uppercase font-Roboto text-base rounded-lg font-bold hover:bg-black hover:text-white" onclick="copy_password()">copy</button>
+      </div>
+
+      
+
+      
+
+    </section>
+    <script>
+      
+
+    function copy_password(){
+    var copyText = document.getElementById('color');
+    var textArea = document.createElement('textarea');
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+    alert("Hex color copiado com sucesso para área de transferência");
+}
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -19,17 +19,8 @@ btn.addEventListener('click', () =>{
 
     document.body.style.backgroundColor = hexColor
 
-
-
-    
 })
 
-
-
-reset.addEventListener('click', () =>{
-    color.textContent = '#FFFFFF';
-    document.body.style.backgroundColor = '#FFFFFF'
-})
 
 
 

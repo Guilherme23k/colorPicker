@@ -13,54 +13,36 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <title>Random color picker</title>
   </head>
-  <body class="overflow-y-hidden">
-    <nav
-      class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md"
-    >
-      <div
-        class="container flex flex-wrap items-center justify-between mx-auto"
-      >
-        <a href="#" class="flex">
-          <span
-            class="justify-center text-xl text-gray-800 font-semibold whitespace-nowrap dark:text-white"
-          >
-            Random Color Picker</span
-          >
-        </a>
-      </div>
-    </nav>
-
-    <div class="alert bg-greenAlert py-5 px-10 max-w-lg absolute right-0 top-16 rounded-md border-l-8 border-greenAlertBorder">
-      <span class="fas fa-exclamation-circle absolute left-5 top-1/2"></span>
-      <span class="msg">Copiado com sucesso para área de transferência</span>
-      
-      <span class="close-btn">
-        <span class="fas fa-times"></span>
-      </span>
-    </div>
+  <body class="overflow-hidden">
 
     <section class="min-h-screen grid place-items-center">
 
+      <div class="alert hide">
+        <span class="fas fa-check-circle"></span>
+        <span class="msg">Hex color copiada para área de transferência!</span>
+        <div class="close-btn">
+           <span class="fas fa-times"></span>
+        </div>
+     </div>
+
       <div class="text-center">
 
-        <h2 class="capitalize block text-white bg-blackMain p-4 mb-10 text-4xl font-semibold rounded-lg tracking-wideButton font-Roboto">background color : 
-          <span class="text-blueMain" id="color">#FFFFFF</span>
+        <h2 class="textMain">background color : 
+          <span class="spanMain" id="color">#ffffff</span>
          </h2>
-      <button class="button-main bg-transparent border-black border-2 py-3 px-8 tracking-wideButton uppercase font-Roboto text-base rounded-lg font-bold hover:bg-black hover:text-white" id="btn">generate color</button>
-      <reset class="ml-10 button-main bg-transparent border-black border-2 py-3 px-8 tracking-wideButton uppercase font-Roboto text-base rounded-lg font-bold hover:bg-black hover:text-white" onclick="copy_password()">copy</button>
+      <button class="button-main" id="btn">generate color</button>
+      <button class="ml-10 button-main" id="botao" onclick="copiarHex()">copy</button>
       </div>
-
-      
-
-      
-
     </section>
+
+    
     <script>
       
 
-    function copy_password(){
+    function copiarHex(){
     var copyText = document.getElementById('color');
     var textArea = document.createElement('textarea');
     textArea.value = copyText.textContent;
@@ -68,9 +50,53 @@
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
-    alert("Hex color copiado com sucesso para área de transferência");
-}
+}   
+
+    $('#botao').click(function(){
+        $('.alert').addClass("show");
+        $('.alert').removeClass("hide");
+        $('.alert').addClass("showAlert");
+        setTimeout(function(){
+          $('.alert').removeClass("show");
+          $('.alert').addClass("hide");
+        },5000);
+      });
+      $('.close-btn').click(function(){
+        $('.alert').removeClass("show");
+        $('.alert').addClass("hide");
+      });
     </script>
+    <style>
+       @keyframes show_slide {
+   0%{
+     transform: translateX(100%);
+   }
+   40%{
+     transform: translateX(-10%);
+   }
+   80%{
+     transform: translateX(0%);
+   }
+   100%{
+     transform: translateX(-10px);
+   }
+ }
+
+      @keyframes hide_slide {
+   0%{
+     transform: translateX(-10px);
+   }
+   40%{
+     transform: translateX(0%);
+   }
+   80%{
+     transform: translateX(-10%);
+   }
+   100%{
+     transform: translateX(100%);
+   }
+ }
+    </style>
     <script src="main.js"></script>
   </body>
 </html>

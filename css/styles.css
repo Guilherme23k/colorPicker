@@ -3,7 +3,56 @@
 @tailwind utilities;
 
 @layer components {
+
+    .alert{
+        @apply bg-greenAlert py-5 px-10 min-w-alert absolute right-0 top-16 rounded border-l-8 border-solid border-greenAlertBorder overflow-hidden opacity-0 pointer-events-none;
+    }
+
+    .showAlert{
+        @apply opacity-100 pointer-events-auto;
+    }
+
+    .show{
+        animation: show_slide 1s ease forwards;
+    }
+
+    .hide{
+        animation: hide_slide 1s ease forwards;
+    }
+
+    .fa-check-circle{
+        transform: translateY(-50%);
+        font-size: 30px;
+        @apply absolute left-5 top-1/2 text-greenAlertExclamation;
+    }
+
+    .msg{
+        @apply py-0 px-5 text-greenAlertExclamation;
+    }
+
+    .close-btn{
+        transform: translateY(-50%);
+        @apply absolute right-0 top-1/2 text-greenAlertClose py-5 px-4.5 cursor-pointer;
+    }
+
+    .close-btn:hover {
+        @apply bg-greenAlertCloseHover;
+    }
+
+    .fas{
+        @apply text-greenAlertFas text-xl;
+    }
+
+    .textMain {
+        @apply capitalize block text-white bg-blackMain p-4 mb-10 text-4xl font-semibold rounded-lg tracking-wideButton font-Roboto;
+    }
+
+    .spanMain{
+        @apply text-blueMain uppercase;
+    }
+
     .button-main{
         transition: all 0.3s linear;
+        @apply bg-transparent border-black border-2 py-3 px-8 tracking-wideButton uppercase font-Roboto text-base rounded-lg font-bold hover:bg-black hover:text-white;
     }
 }

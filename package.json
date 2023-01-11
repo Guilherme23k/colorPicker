@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss-cli@latest -i ./css/styles.css -o ./css/build.css"
+    "build2": "npx tailwindcss-cli@latest -i ./css/styles.css -o ./css/build.css",
+    "build": "[my-framework] build --output public"
   },
   "keywords": [],
   "author": "",

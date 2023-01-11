@@ -31,26 +31,27 @@
       <div class="text-center">
 
         <h2 class="textMain">background color : 
-          <span class="spanMain" id="color">#ffffff</span>
+          <span class="spanMain" id="spanColor">#ffffff</span>
          </h2>
       <button class="button-main" id="btn">generate color</button>
-      <button class="ml-10 button-main" id="botao" onclick="copiarHex()">copy</button>
+      <button class="ml-10 button-main" id="botao" >copy</button>
       </div>
     </section>
 
     
     <script>
       
+      const botao = document.getElementById('botao')
 
-    function copiarHex(){
-    var copyText = document.getElementById('color');
-    var textArea = document.createElement('textarea');
-    textArea.value = copyText.textContent;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand("Copy");
-    textArea.remove();
-}   
+      botao.addEventListener('click', () =>{
+        var copyText = document.getElementById('color');
+        var textArea = document.createElement('textarea');
+        textArea.value = copyText.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("Copy");
+        textArea.remove();
+      })
 
     $('#botao').click(function(){
         $('.alert').addClass("show");
